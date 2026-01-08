@@ -24,3 +24,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.floating-anim { animation: floating 3.3s ease-in-out infinite; }
+        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        
+        /* Mobile text entry animation improvement */
+        .swiper-slide-active h1 { animation: fadeInUp 0.7s ease backwards 0.2s; }
+        .swiper-slide-active p { animation: fadeInUp 0.7s ease backwards 0.4s; }
+        
+        @keyframes fadeInUp { 
+          from { opacity: 0; transform: translateY(20px); } 
+          to { opacity: 1; transform: translateY(0); } 
+        }
+          .rotate-anim {
+  animation: slowRotate 10s linear infinite;
+}
+
+@keyframes slowRotate {
+  0% { transform: rotate(0deg) translateY(0px); }
+  50% { transform: rotate(5deg) translateY(-20px); }
+  100% { transform: rotate(0deg) translateY(0px); }
+}
+
+@theme {
+  --font-poppins: var(--font-poppins), ui-sans-serif, system-ui;
+  --font-hind: var(--font-hind), var(--font-poppins), sans-serif;
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-hind), var(--font-poppins), sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, a, button {
+    font-family: var(--font-hind), var(--font-poppins), sans-serif;
+  }
+}
+
+.floating-anim {
+  animation: floating 3.3s ease-in-out infinite;
+}

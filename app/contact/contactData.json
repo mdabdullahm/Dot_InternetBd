@@ -1,0 +1,19 @@
+{
+  "header": {
+    "title": "Get in touch",
+    "description": "If you would like to find out more about how we can help you, please give us a call or drop us an email. We welcome your comments and suggestions about this website and/or any issues that you wish to raise.",
+    "bgVideo": "https://github.com/mdabdullahm/video/raw/refs/heads/main/hero2.mp4"
+  },
+  "info": {
+    "title": "Contact Information",
+    "phones": ["+8809639121121", "+8809638121121"],
+    "email": "info@dotinternetbd.com",
+    "address": "650, Rayer Bazar East, (Jafrabad), Mohammadpur, Dhaka.",
+    "enquiries": [
+      { "label": "Billing enquiries", "email": "accounts@dotinternetbd.com" },
+      { "label": "Technical enquiries", "email": "noc@dotinternetbd.com" },
+      { "label": "New connection enquiries", "email": "sales@dotinternetbd.com" },
+      { "label": "Management", "email": "admin@dotinternetbd.com" }
+    ]
+  }
+}
