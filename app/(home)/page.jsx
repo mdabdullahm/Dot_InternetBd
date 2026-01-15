@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 // Swiper ইমপোর্ট
-import { Swiper, SwiperSlide } from 'swiper/react'; 
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 
 // Swiper CSS
@@ -13,9 +13,9 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 
 // আইকনসমূহ
-import { 
-    Check, Facebook, Home, Shield, Briefcase, Server, 
-    UploadCloud, Settings, Database, Globe, MapPin, Search, Map, ChevronDown 
+import {
+    Check, Facebook, Home, Shield, Briefcase, Server,
+    UploadCloud, Settings, Database, Globe, MapPin, Search, Map, ChevronDown
 } from 'lucide-react';
 
 import homeData from './homeData.json';
@@ -36,7 +36,7 @@ const LottieComponent = ({ url }) => {
 // আইকন ম্যাপার
 const getIcon = (iconName) => {
     const icons = {
-        home: <Home size={30} />, shield: <Shield size={30} />, 
+        home: <Home size={30} />, shield: <Shield size={30} />,
         briefcase: <Briefcase size={30} />, server: <Server size={30} />,
         network: <UploadCloud size={30} />, settings: <Settings size={30} />,
         database: <Database size={30} />, globe: <Globe size={30} />,
@@ -66,7 +66,7 @@ export default function HomePage() {
     );
 
     return (
-        <div className="min-h-screen bg-orange-100 font-hind selection:bg-orange-500 selection:text-white">
+        <div className="min-h-screen  bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] font-hind selection:bg-orange-500 selection:text-white">
 
             {/* ১. Hero Section (ইমেজ/ভিডিও সাপোর্ট) */}
             <section className="relative w-full min-h-screen lg:h-[550px] overflow-hidden">
@@ -90,7 +90,7 @@ export default function HomePage() {
                             </div>
 
                             <div className="relative z-20 container mx-auto px-6 h-full flex items-center justify-center">
-                                
+
                                 {/* টাইপ ১: প্যাকেজ স্লাইড */}
                                 {slide.type === 'packages' && (
                                     <div className="flex flex-col lg:flex-row items-center w-full gap-10">
@@ -147,46 +147,30 @@ export default function HomePage() {
                     ))}
                 </Swiper>
             </section>
-
-            {/* ২. Pricing Section */}
+            {/* 2. Solutions Section */}
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
-                <div className="container mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-4 font-poppins tracking-tighter uppercase">Pricing <span className="text-orange-600">Plans</span></h2>
-                        <div className="w-20 h-1.5 bg-orange-600 mx-auto rounded-full mb-6 shadow-lg shadow-orange-500/20"></div>
-                    </div>
-                    <div className="space-y-6 max-w-6xl mx-auto">
-                        {homeData.regularPlans?.map((plan) => (
-                            <motion.div key={plan.id} whileInView={{ opacity: 1, x: 0 }} initial={{ opacity: 0, x: -20 }} viewport={{ once: true }} className="bg-white border border-orange-200 rounded-[2.5rem] p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between group hover:border-orange-500 transition-all duration-300 shadow-xl">
-                                <div className="w-full lg:w-1/4 text-center lg:text-left flex flex-col items-center lg:items-start">
-                                    <h3 className="text-2xl font-black text-slate-900 mb-1 font-poppins uppercase tracking-tighter">{plan.name}</h3>
-                                    <p className="text-orange-800/60 text-[10px] font-black uppercase tracking-widest mb-6">Digital Journey Start</p>
-                                    <div className="bg-orange-600 text-white px-10 py-3 rounded-full text-xl font-black italic shadow-lg shadow-orange-600/30">{plan.speed}</div>
-                                </div>
-                                <div className="w-full lg:w-2/4 grid grid-cols-1 md:grid-cols-2 gap-4 py-8 lg:py-0 border-y lg:border-y-0 lg:border-x border-orange-100 lg:px-12">
-                                    {plan.features.map((feature, idx) => (
-                                        <div key={idx} className="flex items-center gap-3 text-sm font-bold text-slate-700">
-                                            <div className="bg-orange-100 p-1 rounded-full text-orange-600"><Check size={14} strokeWidth={4} /></div>
-                                            {feature}
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="w-full lg:w-1/4 text-center lg:text-right">
-                                    <div className="mb-6"><span className="text-4xl lg:text-5xl font-black text-slate-900">TK {plan.price}</span><span className="text-orange-600 text-xs font-black uppercase ml-1">/Mo</span></div>
-                                    <button className="bg-orange-600 hover:bg-orange-700 text-white font-black px-10 py-3.5 rounded-xl transition-all shadow-lg active:scale-95 whitespace-nowrap font-poppins text-xs">Buy Now</button>
-                                </div>
-                            </motion.div>
+                <div className="container mx-auto text-center">
+                    <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-16 font-poppins tracking-tighter uppercase">Our <span className="text-orange-600">Solutions</span></h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                        {homeData.services?.map((service) => (
+                            <div key={service.id} className="bg-white border border-orange-200 rounded-[2.5rem] p-8 flex flex-col items-center shadow-lg hover:shadow-orange-200/30 hover:-translate-y-2 transition-all duration-300">
+                                <div className="mb-6 p-4 rounded-2xl bg-orange-50 text-orange-600">{getIcon(service.icon)}</div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-4 font-hind">{service.title}</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed flex-grow line-clamp-3 mb-6 font-medium">{service.desc}</p>
+                                <div className="w-12 h-1 bg-orange-100 rounded-full group-hover:w-full group-hover:bg-orange-500 transition-all duration-500"></div>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
+
             {/* ৩. Coverage Section (3D) */}
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto">
-                    <motion.div 
+                    <motion.div
                         style={{ rotateX, rotateY, perspective: 1200 }} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}
                         className="relative flex flex-col lg:flex-row overflow-hidden rounded-[3rem] shadow-2xl border border-orange-200 cursor-pointer group bg-white"
                     >
@@ -224,24 +208,40 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* ৫. Solutions Section */}
+
+            {/* 5. Pricing Section */}
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
-                <div className="container mx-auto text-center">
-                    <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-16 font-poppins tracking-tighter uppercase">Our <span className="text-orange-600">Solutions</span></h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-                        {homeData.services?.map((service) => (
-                            <div key={service.id} className="bg-white border border-orange-200 rounded-[2.5rem] p-8 flex flex-col items-center shadow-lg hover:shadow-orange-200/30 hover:-translate-y-2 transition-all duration-300">
-                                <div className="mb-6 p-4 rounded-2xl bg-orange-50 text-orange-600">{getIcon(service.icon)}</div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4 font-hind">{service.title}</h3>
-                                <p className="text-slate-600 text-sm leading-relaxed flex-grow line-clamp-3 mb-6 font-medium">{service.desc}</p>
-                                <div className="w-12 h-1 bg-orange-100 rounded-full group-hover:w-full group-hover:bg-orange-500 transition-all duration-500"></div>
-                            </div>
+                <div className="container mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-4 font-poppins tracking-tighter uppercase">Pricing <span className="text-orange-600">Plans</span></h2>
+                        <div className="w-20 h-1.5 bg-orange-600 mx-auto rounded-full mb-6 shadow-lg shadow-orange-500/20"></div>
+                    </div>
+                    <div className="space-y-6 max-w-6xl mx-auto">
+                        {homeData.regularPlans?.map((plan) => (
+                            <motion.div key={plan.id} whileInView={{ opacity: 1, x: 0 }} initial={{ opacity: 0, x: -20 }} viewport={{ once: true }} className="bg-white border border-orange-200 rounded-[2.5rem] p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between group hover:border-orange-500 transition-all duration-300 shadow-xl">
+                                <div className="w-full lg:w-1/4 text-center lg:text-left flex flex-col items-center lg:items-start">
+                                    <h3 className="text-2xl font-black text-slate-900 mb-1 font-poppins uppercase tracking-tighter">{plan.name}</h3>
+                                    <p className="text-orange-800/60 text-[10px] font-black uppercase tracking-widest mb-6">Digital Journey Start</p>
+                                    <div className="bg-orange-600 text-white px-10 py-3 rounded-full text-xl font-black italic shadow-lg shadow-orange-600/30">{plan.speed}</div>
+                                </div>
+                                <div className="w-full lg:w-2/4 grid grid-cols-1 md:grid-cols-2 gap-4 py-8 lg:py-0 border-y lg:border-y-0 lg:border-x border-orange-100 lg:px-12">
+                                    {plan.features.map((feature, idx) => (
+                                        <div key={idx} className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                                            <div className="bg-orange-100 p-1 rounded-full text-orange-600"><Check size={14} strokeWidth={4} /></div>
+                                            {feature}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="w-full lg:w-1/4 text-center lg:text-right">
+                                    <div className="mb-6"><span className="text-4xl lg:text-5xl font-black text-slate-900">TK {plan.price}</span><span className="text-orange-600 text-xs font-black uppercase ml-1">/Mo</span></div>
+                                    <button className="bg-orange-600 hover:bg-orange-700 text-white font-black px-10 py-3.5 rounded-xl transition-all shadow-lg active:scale-95 whitespace-nowrap font-poppins text-xs">Buy Now</button>
+                                </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
-
         </div>
     );
 }
