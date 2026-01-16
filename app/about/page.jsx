@@ -5,7 +5,7 @@ import aboutData from './aboutData.json';
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-orange-100 text-slate-800 font-hind pb-24">
+        <div className="min-h-screen bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] text-slate-800 font-hind pb-24">
 
             {/* ১. গর্জিয়াস হেডার সেকশন - অরেঞ্জ থিমের সাথে মেলানো */}
             <section className="relative h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden">
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
                 {/* ৪. পার্টনার ও মেম্বারস সেকশন - ক্লিয়ার লোগো স্টাইল */}
                 <div className="text-center">
-                    <h2 className="text-4xl lg:text-6xl font-black mb-4 font-poppins text-slate-900 tracking-tight">
+                    <h2 className="text-4xl lg:text-6xl font-black mb-4 font-poppins text-white tracking-tight">
                         Partners & <span className="text-orange-600">Members</span>
                     </h2>
                     <div className="w-24 h-1.5 bg-orange-600 mx-auto mb-16 rounded-full"></div>

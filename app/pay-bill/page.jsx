@@ -10,7 +10,7 @@ export default function PayBillPage() {
     const [customerId, setCustomerId] = useState("");
 
     return (
-        <div className="min-h-screen bg-orange-100 text-slate-800 font-hind pb-24">
+        <div className="min-h-screen bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] text-slate-800 font-hind pb-24">
 
             {/* ১. হেডার সেকশন - প্যাডিং কমিয়ে চওড়া করা হয়েছে */}
             <section className="relative h-[250px] lg:h-[350px] flex items-center overflow-hidden bg-orange-200/50">
@@ -146,7 +146,7 @@ export default function PayBillPage() {
                 {/* ৫. ব্যাংক সেকশন - স্লিম এবং স্মার্ট কার্ড ডিজাইন */}
                 <div className="mt-24">
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl lg:text-5xl font-black text-slate-900 mb-3 font-poppins uppercase tracking-tighter">
+                        <h2 className="text-3xl lg:text-5xl font-black text-white mb-3 font-poppins uppercase tracking-tighter">
                             Bank <span className="text-orange-600">Transfer</span>
                         </h2>
                         <div className="w-16 h-1.5 bg-orange-600 mx-auto rounded-full shadow-[0_0_15px_#ea580c]"></div>

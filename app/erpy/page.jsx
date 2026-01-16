@@ -36,7 +36,7 @@ const ErpyPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-orange-100 text-slate-800 font-hind pb-24">
+        <div className="min-h-screen bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] text-slate-800 font-hind pb-24">
             
             {/* ১. লাক্সারি হেডার সেকশন */}
             <section className="relative h-[450px] lg:h-[550px] flex items-center overflow-hidden">
@@ -97,7 +97,7 @@ const ErpyPage = () => {
                 {/* ৩. মডিউল গ্রিড (৩ডি হোভার ইফেক্ট) */}
                 <div className="mt-32">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-4 font-poppins uppercase tracking-tighter">Core <span className="text-orange-600">Modules</span></h2>
+                        <h2 className="text-4xl lg:text-6xl font-black text-white mb-4 font-poppins uppercase tracking-tighter">Core <span className="text-orange-600">Modules</span></h2>
                         <div className="w-24 h-1.5 bg-orange-600 mx-auto rounded-full shadow-[0_0_20px_#ea580c]"></div>
                     </div>
 

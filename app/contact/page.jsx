@@ -9,7 +9,7 @@ import contactData from './contactData.json';
 
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-orange-100 text-slate-800 font-hind pb-24">
+        <div className="min-h-screen bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] text-slate-800 font-hind pb-24">
             
             {/* ১. হেডার সেকশন - নীল/ডার্ক ওভারলেসহ (ভিডিওর সাথে মিল রেখে) */}
             <section className="relative h-[300px] lg:h-[450px] flex items-center overflow-hidden">

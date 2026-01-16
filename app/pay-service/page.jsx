@@ -25,7 +25,7 @@ const PayServicePage = () => {
     const [selectedService, setSelectedService] = useState("");
 
     return (
-        <div className="min-h-screen bg-orange-100 text-slate-800 font-hind pb-24">
+        <div className="min-h-screen bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] text-slate-800 font-hind pb-24">
             
             {/* ১. প্রিমিয়াম হেডার সেকশন */}
             <section className="relative h-[300px] lg:h-[400px] flex items-center overflow-hidden">

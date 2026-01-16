@@ -67,9 +67,8 @@ export default function HomePage() {
 
     return (
         <div className="min-h-screen  bg-gradient-to-br from-[#BFFF00] via-[#0e270e] to-[#2bd22b] font-hind selection:bg-orange-500 selection:text-white">
-
-            {/* ১. Hero Section (ইমেজ/ভিডিও সাপোর্ট) */}
-            <section className="relative w-full min-h-screen lg:h-[550px] overflow-hidden">
+           {/* ১. Hero Section (Fully Responsive Slider) */}
+            <section className="relative w-full h-[100vh] lg:h-[600px] overflow-hidden">
                 <Swiper
                     modules={[Autoplay, EffectFade]}
                     effect={"fade"}
@@ -78,70 +77,77 @@ export default function HomePage() {
                     className="w-full h-full"
                 >
                     {homeData.heroSlides.map((slide) => (
-                        <SwiperSlide key={slide.id} className="relative w-full h-full overflow-hidden">
-                            {/* ব্যাকগ্রাউন্ড মিডিয়া */}
-                            <div className="absolute inset-0">
-                                {slide.bgImage && (slide.bgImage.endsWith('.mp4') || slide.bgImage.includes('video')) ? (
-                                    <video src={slide.bgImage} autoPlay muted loop playsInline className="w-full h-full object-cover scale-110" />
-                                ) : (
-                                    <div className="w-full h-full bg-cover bg-center scale-110" style={{ backgroundImage: `url(${slide.bgImage})` }} />
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-r from-orange-950/80 via-transparent to-orange-100/50"></div>
-                            </div>
+                        <SwiperSlide key={slide.id}>
+                            <div className="relative w-full h-full overflow-hidden">
+                                {/* ব্যাকগ্রাউন্ড মিডিয়া */}
+                                <div className="absolute inset-0">
+                                    {slide.bgImage && (slide.bgImage.endsWith('.mp4') || slide.bgImage.includes('video')) ? (
+                                        <video src={slide.bgImage} autoPlay muted loop playsInline className="w-full h-full object-cover scale-110" />
+                                    ) : (
+                                        <div className="w-full h-full bg-cover bg-center scale-110" style={{ backgroundImage: `url(${slide.bgImage})` }} />
+                                    )}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-orange-950/90 via-orange-950/40 to-orange-100/20 lg:from-orange-950/80 lg:to-orange-100/50"></div>
+                                </div>
 
-                            <div className="relative z-20 container mx-auto px-6 h-full flex items-center justify-center">
+                                {/* কন্টেন্ট এরিয়া */}
+                                <div className="relative z-20 container mx-auto px-4 lg:px-10 h-full flex items-center justify-center pt-10 lg:pt-0">
+                                    
+                                    {/* টাইপ: প্যাকেজ */}
+                                    {slide.type === 'packages' && (
+                                        <div className="flex flex-col lg:flex-row items-center w-full gap-8 lg:gap-10">
+                                            <div className="w-full lg:w-3/5 text-center lg:text-left text-white order-2 lg:order-1">
+                                                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black mb-3 italic leading-tight font-poppins drop-shadow-2xl">{slide.title}</h1>
+                                                <p className="text-sm sm:text-lg lg:text-xl mb-6 lg:mb-10 text-orange-50 opacity-90 max-w-xl mx-auto lg:mx-0 font-hind">{slide.subtitle}</p>
+                                                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 lg:gap-3">
+                                                    {slide.items?.map((item, i) => (
+                                                        <div key={i} className="bg-white/10 backdrop-blur-md p-3 lg:p-4 rounded-xl lg:rounded-2xl border border-white/20 text-center hover:bg-orange-600 transition-all cursor-pointer shadow-lg font-poppins">
+                                                            <div className="text-lg lg:text-xl font-black italic">{item.label}</div>
+                                                            <div className="text-[10px] font-bold opacity-80 mt-0.5 uppercase">{item.price}</div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div className="w-full lg:w-2/5 flex justify-center order-1 lg:order-2">
+                                                <img src={slide.image} className="w-40 sm:w-64 lg:w-full max-w-[420px] floating-anim drop-shadow-2xl" alt="hero" />
+                                            </div>
+                                        </div>
+                                    )}
 
-                                {/* টাইপ ১: প্যাকেজ স্লাইড */}
-                                {slide.type === 'packages' && (
-                                    <div className="flex flex-col lg:flex-row items-center w-full gap-10">
-                                        <div className="w-full lg:w-3/5 text-white">
-                                            <h1 className="text-4xl lg:text-7xl font-black mb-4 italic drop-shadow-2xl font-poppins">{slide.title}</h1>
-                                            <p className="text-xl mb-10 text-orange-50 opacity-90">{slide.subtitle}</p>
-                                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                                {slide.items?.map((item, i) => (
-                                                    <div key={i} className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 text-center hover:bg-orange-600 transition-all cursor-pointer">
-                                                        <div className="text-xl font-black italic">{item.label}</div>
-                                                        <div className="text-[10px] font-bold opacity-80 mt-1 uppercase">{item.price}</div>
+                                    {/* টাইপ: গেম লোগো */}
+                                    {slide.type === 'games' && (
+                                        <div className="w-full text-center text-white px-2">
+                                            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black mb-8 lg:mb-12 drop-shadow-xl font-poppins px-4 uppercase tracking-tighter">{slide.title}</h1>
+                                            <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-8 gap-2 lg:gap-4 max-w-5xl mx-auto">
+                                                {slide.logos?.map((logo, i) => (
+                                                    <div key={i} className="bg-white/95 p-2 lg:p-3 rounded-lg lg:rounded-2xl flex items-center justify-center h-14 sm:h-20 lg:h-24 shadow-xl border border-white transition-transform hover:scale-105">
+                                                        <img src={logo.img} className="h-6 sm:h-10 lg:h-12 w-auto object-contain" alt="game" />
                                                     </div>
                                                 ))}
                                             </div>
                                         </div>
-                                        <div className="w-full lg:w-2/5 flex justify-center"><img src={slide.image} className="w-64 lg:w-full max-w-[420px] floating-anim" alt="hero" /></div>
-                                    </div>
-                                )}
+                                    )}
 
-                                {/* টাইপ ২: গেম লোগো স্লাইড */}
-                                {slide.type === 'games' && (
-                                    <div className="w-full text-center text-white px-4">
-                                        <h1 className="text-3xl lg:text-5xl font-black mb-12 drop-shadow-xl font-poppins">{slide.title}</h1>
-                                        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-5xl mx-auto">
-                                            {slide.logos?.map((logo, i) => (
-                                                <div key={i} className="bg-white/95 p-3 rounded-2xl flex items-center justify-center h-16 lg:h-24 shadow-xl border border-white">
-                                                    <img src={logo.img} className="h-10 lg:h-12 w-auto object-contain" alt="game" />
-                                                </div>
-                                            ))}
+                                    {/* টাইপ: IPv6 */}
+                                    {slide.type === 'ipv6' && (
+                                        <div className="flex flex-col lg:flex-row items-center w-full gap-8 lg:gap-10">
+                                            <div className="w-full lg:w-1/2 text-center lg:text-left text-white order-2 lg:order-1">
+                                                <h1 className="text-4xl sm:text-6xl lg:text-9xl font-black mb-2 leading-none font-poppins drop-shadow-2xl tracking-tighter">IPv6 READY</h1>
+                                                <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-orange-400 mb-6 lg:mb-8 uppercase tracking-widest px-4 lg:px-0 font-hind">{slide.subtitle}</p>
+                                                <ul className="mb-8 space-y-2 font-medium hidden sm:block font-hind">
+                                                    {slide.features?.map((f, i) => (
+                                                        <li key={i} className="flex items-center text-sm lg:text-lg justify-center lg:justify-start">
+                                                            <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 animate-ping"></span>{f}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 lg:px-12 py-3 lg:py-4 rounded-full font-black text-sm lg:text-lg shadow-xl active:scale-95 transition-all uppercase tracking-widest font-poppins">Get Connection</button>
+                                            </div>
+                                            <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
+                                                <img src={slide.image} className="w-48 sm:w-80 lg:w-[480px] rotate-anim drop-shadow-2xl" alt="ipv6" />
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-
-                                {/* টাইপ ৩: IPv6 স্লাইড (এই অংশটি বাদ গিয়েছিল) */}
-                                {slide.type === 'ipv6' && (
-                                    <div className="flex flex-col lg:flex-row items-center w-full text-white gap-10">
-                                        <div className="w-full lg:w-1/2 text-center lg:text-left">
-                                            <h1 className="text-6xl lg:text-9xl font-black mb-2 leading-none font-poppins drop-shadow-2xl">IPv6 READY</h1>
-                                            <p className="text-xl lg:text-3xl font-bold text-orange-400 mb-8 uppercase tracking-widest">{slide.subtitle}</p>
-                                            <ul className="mb-10 space-y-3 font-medium">
-                                                {slide.features?.map((f, i) => (
-                                                    <li key={i} className="flex items-center text-lg"><span className="w-2 h-2 bg-orange-500 rounded-full mr-3 animate-ping"></span>{f}</li>
-                                                ))}
-                                            </ul>
-                                            <button className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-4 rounded-full font-black text-lg shadow-xl active:scale-95 transition-all">Get a Connection</button>
-                                        </div>
-                                        <div className="w-full lg:w-1/2 flex justify-center">
-                                            <img src={slide.image} className="w-64 lg:w-[480px] rotate-anim" alt="ipv6" />
-                                        </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))}
@@ -151,7 +157,7 @@ export default function HomePage() {
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto text-center">
-                    <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-16 font-poppins tracking-tighter uppercase">Our <span className="text-orange-600">Solutions</span></h2>
+                    <h2 className="text-4xl lg:text-6xl font-black text-white mb-16 font-poppins tracking-tighter uppercase">Our <span className="text-orange-600">Solutions</span></h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
                         {homeData.services?.map((service) => (
                             <div key={service.id} className="bg-white border border-orange-200 rounded-[2.5rem] p-8 flex flex-col items-center shadow-lg hover:shadow-orange-200/30 hover:-translate-y-2 transition-all duration-300">
@@ -164,8 +170,6 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-
-
             {/* ৩. Coverage Section (3D) */}
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
@@ -187,7 +191,6 @@ export default function HomePage() {
                     </motion.div>
                 </div>
             </section>
-
             {/* ৪. Feature Cards */}
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
@@ -207,14 +210,12 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-
-
             {/* 5. Pricing Section */}
             <section className="py-20 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-4 font-poppins tracking-tighter uppercase">Pricing <span className="text-orange-600">Plans</span></h2>
+                        <h2 className="text-4xl lg:text-6xl font-black text-white mb-4 font-poppins tracking-tighter uppercase">Pricing <span className="text-orange-600">Plans</span></h2>
                         <div className="w-20 h-1.5 bg-orange-600 mx-auto rounded-full mb-6 shadow-lg shadow-orange-500/20"></div>
                     </div>
                     <div className="space-y-6 max-w-6xl mx-auto">
