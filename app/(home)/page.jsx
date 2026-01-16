@@ -154,7 +154,7 @@ export default function HomePage() {
                 </Swiper>
             </section>
             {/* 2. Solutions Section */}
-            <section className="py-20 px-4 lg:px-10">
+            <section className="py-5 lg:py-10 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto text-center">
                     <h2 className="text-4xl lg:text-6xl font-black text-white mb-16 font-poppins tracking-tighter uppercase">Our <span className="text-orange-600">Solutions</span></h2>
@@ -171,7 +171,7 @@ export default function HomePage() {
                 </div>
             </section>
             {/* ৩. Coverage Section (3D) */}
-            <section className="py-20 px-4 lg:px-10">
+            <section className="py-5 lg:py-10 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto">
                     <motion.div
@@ -192,7 +192,7 @@ export default function HomePage() {
                 </div>
             </section>
             {/* ৪. Feature Cards */}
-            <section className="py-20 px-4 lg:px-10">
+            <section className="py-5 lg:py-10 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -211,7 +211,7 @@ export default function HomePage() {
                 </div>
             </section>
             {/* 5. Pricing Section */}
-            <section className="py-20 px-4 lg:px-10">
+            <section className="py-5 lg:py-10 px-4 lg:px-10">
                 <SectionBorder />
                 <div className="container mx-auto">
                     <div className="text-center mb-16">
